@@ -1,0 +1,28 @@
+.differences-toggle {
+    display: flex;
+    width: 500px;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &__label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 14px;
+        font-size: 18px;
+        color: #0D5ADC;
+        font-weight: 400;
+        line-height: 60px;
+        font-family: 'Roboto';
+        margin: 0 0;
+    }
+
+    &__input {
+        width: 24px;
+        height: 24px;
+        margin-right: 14px;
+        border-color: #C1C1C2;
+        border-radius: 2px;
+    }
+}

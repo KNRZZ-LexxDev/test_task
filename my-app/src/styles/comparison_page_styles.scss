@@ -1,0 +1,35 @@
+.comparison-page{
+    height: auto;
+    padding: 60px 166px 20px 166px;
+
+    &__count-control-wrap{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+
+    &__differents-control-wrap{
+        display: flex;
+        flex-direction: row;
+        align-items:end;
+        justify-content: space-between;
+        
+    }
+
+    &__title {
+        font-size: 48px;
+        color: #828286;
+        font-weight: 700;
+        line-height: 60px;
+        font-family: 'Roboto';
+    }
+
+    &__product-card-wrap{
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 20; 
+        margin-top: 20;
+    }
+}
