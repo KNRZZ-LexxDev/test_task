@@ -16,6 +16,7 @@ import ComparisonPopup from './ComparisonPopup';
 import { Header } from './Header';
 import '../styles/comparison_page_styles.scss';
 import DisplayCountLinks from './DisplayCountLinks';
+import ComparisonTable from './ComparisonTable';
 
 const ComparisonPage: React.FC = () => {
     const dispatch = useDispatch();
@@ -127,18 +128,10 @@ const ComparisonPage: React.FC = () => {
                     />
                 )}
 
-                {/* Отображение различий */}
-                {showDifferencesOnly && (
-                    <div style={{ marginTop: 20 }}>
-                        <h3>Только отличающиеся характеристики:</h3>
-                        <ul>
-                            {differences.map((diff) => (
-                                <li key={diff}>{diff}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-
+                <ComparisonTable
+                    products={displayedProducts}
+                    showDifferencesOnly={showDifferencesOnly}
+                />
             </div>
         </>
     );
