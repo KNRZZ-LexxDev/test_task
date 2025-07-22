@@ -13,11 +13,11 @@ export const mockProducts: Product[] = [
   {
     id: 1,
     name: 'Apple iPhone 12',
-    image: apple_iphone_12, // путь к изображению
+    image: apple_iphone_12,
     features: {
       producer: 'Apple',
       releaseYear: '2020',
-      screenSize: '6.1" (дюйм)',
+      screenSize: '6.1',
       country: 'Китай',
       memoryCapacity: '128 Гб',
       screenRefreshRate: '60 Гц',
@@ -34,7 +34,7 @@ export const mockProducts: Product[] = [
     features: {
       producer: 'Xiaomi',
       releaseYear: '2021',
-      screenSize: '6.55"',
+      screenSize: '6.55',
       country: 'Китай',
       memoryCapacity: '128 Гб',
       screenRefreshRate: '90 Гц',
@@ -51,7 +51,7 @@ export const mockProducts: Product[] = [
     features: {
       producer: 'Samsung',
       releaseYear: '2021',
-      screenSize: '6.7"',
+      screenSize: '6.7',
       country: 'Вьетнам',
       memoryCapacity: '128 Гб',
       screenRefreshRate: '90 Гц',
@@ -68,10 +68,10 @@ export const mockProducts: Product[] = [
     features: {
       producer: 'Samsung',
       releaseYear: '2021',
-      screenSize: '6.2"',
+      screenSize: '6.2',
       country: 'Вьетнам',
       memoryCapacity: '128 Гб',
-      screenRefreshRate: '120 Гц', // добавил 120 для варианта
+      screenRefreshRate: '120 Гц',
       NFC: true,
       esimSupport: true,
       wirelessCharging: true,
@@ -85,7 +85,7 @@ export const mockProducts: Product[] = [
     features: {
       producer: 'Apple',
       releaseYear: '2018',
-      screenSize: '6.1"',
+      screenSize: '6.1',
       country: 'Китай',
       memoryCapacity: '128 Гб',
       screenRefreshRate: '60 Гц',
@@ -102,7 +102,7 @@ export const mockProducts: Product[] = [
     features: {
       producer: 'Realme',
       releaseYear: '2021',
-      screenSize: '6.4"',
+      screenSize: '6.4',
       country: 'Китай',
       memoryCapacity: '128 Гб',
       screenRefreshRate: '60 Гц',

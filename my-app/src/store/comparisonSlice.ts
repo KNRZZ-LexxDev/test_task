@@ -30,7 +30,6 @@ const comparisonSlice = createSlice({
   reducers: {
     setAllProducts(state, action: PayloadAction<Product[]>) {
       state.allProducts = action.payload;
-      // Изначально выберите первые 3
       state.selectedProducts = action.payload.slice(0, state.displayCount);
     },
     setSelectedProducts(state, action: PayloadAction<Product[]>) {

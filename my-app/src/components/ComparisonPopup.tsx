@@ -22,13 +22,13 @@ const ComparisonPopup: React.FC<Props> = ({ products, onSelect, onClose }) => {
       <div className='popup__wrap' style={{
         overflowY: filteredProducts.length > 3 ? 'auto' : 'visible'
       }}>
-          <input
-            type="text"
-            placeholder="Поиск..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className='popup__search-input'
-          />
+        {products.length > 3 && <input
+          type="text"
+          placeholder="Поиск..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className='popup__search-input'
+        />}
         <div className='popup__product-wrap'>
           {filteredProducts.map(p => (
             <div
@@ -42,7 +42,6 @@ const ComparisonPopup: React.FC<Props> = ({ products, onSelect, onClose }) => {
             </div>
           ))}
         </div>
-        {/* <button onClick={onClose} style={{ marginTop: 10 }}>Закрыть</button> */}
       </div>
     </div>
   );

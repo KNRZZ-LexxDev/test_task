@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/comparison_table_styles.scss';
+import BooleanIcon from './BooleanIcon';
 
 interface Product {
   id: number;
@@ -13,7 +14,20 @@ interface ComparisonTableProps {
 }
 
 const ComparisonTable: React.FC<ComparisonTableProps> = ({ products, showDifferencesOnly }) => {
-  // получаем все уникальные ключи характеристик
+
+  const featureNames: Record<string, string> = {
+    producer: 'ПРОИЗВОДИТЕЛЬ',
+    releaseYear: 'ГОД РЕЛИЗА',
+    screenSize: 'ДИАГОНАЛЬ ЭКРАНА (ДЮЙМ)',
+    country: 'СТРАНА-ПРОИЗВОДИТЕЛЬ',
+    memoryCapacity: 'ОБЪЕМ ПАМЯТИ',
+    screenRefreshRate: 'ЧАСТОТА ОБНОВЛЕНИЯ ЭКРАНА',
+    nfc: 'NFC',
+    esimSupport: 'ПОДДЕРЖКА ESIM',
+    wirelessCharging: 'ПОДДЕРЖКА БЕСПРОВОДНАЯ ЗАРЯДКА',
+    cost: 'СТОИМОСТЬ',
+  };
+
   const featureKeys = React.useMemo(() => {
     const keys = new Set<string>();
     products.forEach(p => {
@@ -22,7 +36,6 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ products, showDiffere
     return Array.from(keys);
   }, [products]);
 
-  // определяем ключи, по которым есть отличия
   const differences = React.useMemo(() => {
     const diffKeys: string[] = [];
     featureKeys.forEach(k => {
@@ -35,31 +48,35 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ products, showDiffere
     return diffKeys;
   }, [products, featureKeys]);
 
-  // фильтруем строки для отображения
   const displayKeys = React.useMemo(() => {
     return showDifferencesOnly ? differences : featureKeys;
   }, [showDifferencesOnly, differences, featureKeys]);
 
   return (
     <table className="comparison-table">
-      {/* <thead>
-        <tr>
-          <th>Характеристика</th>
-          {products.map(p => (
-            <th key={p.id}>{p.name}</th>
-          ))}
-        </tr>
-      </thead> */}
-      <tbody>
+      <tbody className='comparison-table__wrap'>
         {displayKeys.map((k) => (
-          <tr key={k}>
-            <td>{k}</td>
-            {products.map(p => (
-              <td key={p.id}>{String(p.features[k] ?? '-')}</td>
-            ))}
+          <tr key={k} className='comparison-table__row'>
+            <td className='comparison-table__row__title-text'>{featureNames[k] ?? k}</td>
+            {products.map(p => {
+              const cellValue = p.features[k];
+              if (typeof cellValue === 'boolean') {
+                return (
+                  <td key={p.id} className='comparison-table__row__desc-text'>
+                    <BooleanIcon value={cellValue} />
+                  </td>
+                );
+              }
+              return (
+                <td key={p.id} className='comparison-table__row__desc-text'>
+                  {String(cellValue ?? '-')}
+                </td>
+              );
+            })}
           </tr>
         ))}
       </tbody>
+
     </table>
   );
 };

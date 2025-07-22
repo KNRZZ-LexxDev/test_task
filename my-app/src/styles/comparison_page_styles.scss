@@ -1,21 +1,21 @@
-.comparison-page{
+.comparison-page {
     height: auto;
     padding: 60px 166px 20px 166px;
 
-    &__count-control-wrap{
+    &__count-control-wrap {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        
+
     }
 
-    &__differents-control-wrap{
+    &__differents-control-wrap {
         display: flex;
         flex-direction: row;
-        align-items:end;
+        align-items: end;
         justify-content: space-between;
-        
+
     }
 
     &__title {
@@ -26,10 +26,200 @@
         font-family: 'Roboto';
     }
 
-    &__product-card-wrap{
-        display: flex; 
-        flex-wrap: wrap; 
-        gap: 20; 
+    &__product-card-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20;
         margin-top: 20;
     }
+
+    &__comparison-table-wrap {
+        height: auto;
+        padding: 0px 166px 0px 166px;
+        background-color: #F4F9FC;
+    }
 }
+
+@media (min-width: 992px) and (max-width: 1280px) {
+    .comparison-page {
+        height: auto;
+        padding: 60px 50px 20px 50px;
+
+        &__count-control-wrap {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        &__differents-control-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        &__title {
+            font-size: 48px;
+            color: #828286;
+            font-weight: 700;
+            line-height: 60px;
+            font-family: 'Roboto';
+        }
+
+        &__product-card-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20;
+            margin-top: 20;
+        }
+
+        &__comparison-table-wrap {
+            height: auto;
+            padding: 0px 60px 0px 60px;
+            background-color: #F4F9FC;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .comparison-page {
+        height: auto;
+        padding: 60px 50px 20px 50px;
+
+        &__count-control-wrap {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        &__differents-control-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        &__title {
+            font-size: 48px;
+            color: #828286;
+            font-weight: 700;
+            line-height: 60px;
+            font-family: 'Roboto';
+        }
+
+        &__product-card-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20;
+            margin-top: 20;
+        }
+
+        &__comparison-table-wrap {
+            height: auto;
+            padding: 0px 10px 20px 10px;
+            background-color: #F4F9FC;
+        }
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .comparison-page {
+        height: auto;
+        padding: 60px 166px 20px 166px;
+
+        &__count-control-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        &__differents-control-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        &__title {
+            font-size: 48px;
+            color: #828286;
+            font-weight: 700;
+            line-height: 60px;
+            font-family: 'Roboto';
+        }
+
+        &__product-card-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20;
+            margin-top: 20;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__comparison-table-wrap {
+            height: auto;
+            padding: 0px 10px 20px 10px;
+            background-color: #F4F9FC;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+     .comparison-page {
+        height: auto;
+        padding: 60px 166px 20px 166px;
+
+        &__count-control-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        &__differents-control-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        &__title {
+            font-size: 48px;
+            color: #828286;
+            font-weight: 700;
+            line-height: 60px;
+            font-family: 'Roboto';
+        }
+
+        &__product-card-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20;
+            margin-top: 20;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__comparison-table-wrap {
+            height: auto;
+            padding: 0px 10px 20px 10px;
+            background-color: #F4F9FC;
+        }
+    }
+}
+
+@media (max-width: 320px) {}
