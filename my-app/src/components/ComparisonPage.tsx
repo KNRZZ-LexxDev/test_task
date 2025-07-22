@@ -30,11 +30,18 @@ const ComparisonPage: React.FC = () => {
     const [popupProducts, setPopupProducts] = useState<Product[]>([]);
     const [replaceIndex, setReplaceIndex] = useState<number | null>(null);
 
-    const handleOpenPopup = (excludedProducts: Product[], index: number | null) => {
-        setPopupProducts(excludedProducts);
+    const handleOpenPopup = (index: number | null) => {
+        // По умолчанию показывайте выбранные товары (первые 3, например)
+        const selectedSubset = selectedProducts.slice(0, displayCount);
+        // Исключаете из всех доступных выбранные товары
+        const remainingProducts = allProducts.filter(
+            p => !selectedSubset.some(sp => sp.id === p.id)
+        );
+        setPopupProducts(remainingProducts);
         setReplaceIndex(index);
         setPopupOpen(true);
     };
+
 
     const handleReplace = (newProduct: Product) => {
         if (replaceIndex !== null) {
@@ -87,17 +94,20 @@ const ComparisonPage: React.FC = () => {
 
                     {/* Карточки товаров */}
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginTop: 20 }}>
-                        {displayedProducts.map((product, index) => (
-                            <ProductCard
-                                key={product.id}
-                                product={product}
-                                onReplace={() => {
-                                    const otherProducts = allProducts.filter(p => p.id !== product.id);
-                                    handleOpenPopup(otherProducts, index);
-                                }}
-                                showReplaceIcon={notDisplayedProducts.length > 0}
-                            />
-                        ))}
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginTop: 20 }}>
+                            {displayedProducts.map((product, index) => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                    onReplace={() => {
+                                        // При открытии для замены исключаем уже добавленные товары
+                                        const otherProducts = allProducts.filter(p => p.id !== product.id);
+                                        handleOpenPopup(index);
+                                    }}
+                                    showReplaceIcon={notDisplayedProducts.length > 0}
+                                />
+                            ))}
+                        </div>
                         {/* {notDisplayedProducts.length > 0 && (
                             <div style={{ alignSelf: 'center', marginLeft: 20 }}>
                                 <button onClick={() => handleOpenPopup(notDisplayedProducts, null)}>

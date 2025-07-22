@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import '../styles/comparison_popup_styles.scss';
 interface Props {
   products: { id: number; name: string; image: string; features: Record<string, any> }[];
   onSelect: (product: { id: number; name: string; image: string; features: Record<string, any> }) => void;
@@ -18,48 +18,31 @@ const ComparisonPopup: React.FC<Props> = ({ products, onSelect, onClose }) => {
   }, [search, products]);
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0, left: 0, right: 0, bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.3)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <div style={{
-        background: '#fff',
-        padding: 20,
-        maxHeight: '80%',
-        width: '80%',
+    <div className='popup'>
+      <div className='popup__wrap' style={{
         overflowY: filteredProducts.length > 3 ? 'auto' : 'visible'
       }}>
-        {products.length > 3 && (
           <input
             type="text"
             placeholder="Поиск..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            style={{ width: '100%', marginBottom: 10 }}
+            className='popup__search-input'
           />
-        )}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+        <div className='popup__product-wrap'>
           {filteredProducts.map(p => (
             <div
               key={p.id}
-              style={{
-                border: '1px solid #ccc',
-                padding: 10,
-                width: 150,
-                cursor: 'pointer'
-              }}
+              className='popup__product-item'
               onClick={() => onSelect(p)}
             >
-              <img src={p.image} alt="" style={{ width: '100%', height: 'auto' }} />
+              <div className='popup__swap-product'></div>
+              <img src={p.image} alt="" className='popup__product-image' />
               <div>{p.name}</div>
             </div>
           ))}
         </div>
-        <button onClick={onClose} style={{ marginTop: 10 }}>Закрыть</button>
+        {/* <button onClick={onClose} style={{ marginTop: 10 }}>Закрыть</button> */}
       </div>
     </div>
   );
